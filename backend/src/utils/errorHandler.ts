@@ -1,3 +1,5 @@
+// A function to create and return a custom error object with a status code and message
+
 interface CustomError extends Error {
     statusCode?: number;
 }

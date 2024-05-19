@@ -2,10 +2,15 @@ import mongoose from "mongoose";
 import express , {Request , Response , NextFunction} from 'express'
 import dotenv from 'dotenv'
 import cors from "./utils/cors";
+import residentRouter from './routes/resident'
+import medicationRouter from './routes/medication'
+import administrationRouter from "./routes/administration";
 
 dotenv.config()
 const app = express();
 
+
+// Configuration for backend
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(cors)
@@ -36,7 +41,10 @@ const startServer = async () => {
   startServer();
 
 
-app.use()
+// Routes
+app.use('/resident' , residentRouter);
+app.use('/medication' , medicationRouter);
+app.use('/administration' , administrationRouter);
 
 
 
