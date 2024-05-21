@@ -2,6 +2,7 @@ import {check , validationResult} from 'express-validator'
 import { errorHandler } from '../utils/errorHandler';
 import express , { Request , Response , NextFunction } from 'express';
 import { addAdministrationRecord, getAdministrationsForMedication, getAdministrationsForResident } from '../controller/administration.controller';
+import { verifyTokens } from '../utils/verifyJWT';
 
 const router = express.Router()
 
@@ -21,7 +22,7 @@ router.post('/add-administration-record' , [
         
         next();
     }
-    , addAdministrationRecord);
+    ,verifyTokens , addAdministrationRecord);
 
 
 router.get('/administrations-for-resident/:id' , getAdministrationsForResident)

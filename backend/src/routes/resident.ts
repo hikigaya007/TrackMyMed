@@ -2,6 +2,7 @@ import { addResident, getResident, updateResident } from '../controller/resident
 import {check , validationResult} from 'express-validator'
 import { errorHandler } from '../utils/errorHandler';
 import express , { Request , Response , NextFunction } from 'express';
+import { verifyTokens } from '../utils/verifyJWT';
 
 const router = express.Router()
 
@@ -19,10 +20,10 @@ router.post('/add-resident' , [
         
         next();
     }
-    , addResident);
+    , verifyTokens , addResident);
 
 
-router.put('/update-resident/:id' , updateResident)
+router.put('/update-resident/:id' , verifyTokens , updateResident)
 
 router.get('/get-resident' , getResident)
 

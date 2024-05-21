@@ -2,6 +2,7 @@ import {check , validationResult} from 'express-validator'
 import { errorHandler } from '../utils/errorHandler';
 import express , { Request , Response , NextFunction } from 'express';
 import { addMedication, getMedication, updateMedication } from '../controller/medication.controller';
+import { verifyTokens } from '../utils/verifyJWT';
 
 const router = express.Router()
 
@@ -19,10 +20,10 @@ router.post('/add-medication' , [
         
         next();
     }
-    , addMedication);
+    ,verifyTokens , addMedication);
 
 
-router.put('/update-medication/:id' , updateMedication)
+router.put('/update-medication/:id' , verifyTokens , updateMedication)
 
 router.get('/get-medication' , getMedication)
 
