@@ -102,6 +102,19 @@ function UpdateForm({ formType, url, data }) {
           <div className=''>
             <div className='text-2xl uppercase font-bold mb-2'>Update Medication</div>
             <div className='flex justify-between w-[420px] gap-3 py-3 items-center'>
+              <label className='font-bold text-xl'>Select Resident:</label>
+              <select
+                onChange={(e) => setUpdateId(e.target.value)}
+                className='h-[45px] w-[80%] outline text-xl'
+                value={updateId}
+              >
+                <option value="">Select an option</option>
+                {data.map((item) => (
+                  <option key={item._id} value={item._id}>{item.name}</option>
+                ))}
+              </select>
+            </div>
+            <div className='flex justify-between w-[420px] gap-3 py-3 items-center'>
               <label className='font-bold text-xl'>Name:</label>
               <input
                 placeholder='Enter Name'
