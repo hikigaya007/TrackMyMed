@@ -2,6 +2,14 @@ import jwt from "jsonwebtoken";
 import { errorHandler } from "./errorHandler";
 import { NextFunction, Request, Response } from "express";
 
+declare global {
+    namespace Express {
+      interface Request {
+        user?: any; 
+      }
+    }
+  }
+
 export const verifyTokens = (req: Request , res:Response , next: NextFunction ) => {
     const token = req.cookies.accessToken;
     console.log(token)
