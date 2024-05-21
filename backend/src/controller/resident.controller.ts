@@ -73,7 +73,7 @@ export const getResident = async(req: Request , res: Response , next: NextFuncti
 
         res
         .status(200)
-        .json({data: fetchResident})
+        .json(fetchResident)
 
     } catch (error) {
         next(error)

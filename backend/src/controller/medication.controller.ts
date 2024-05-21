@@ -73,7 +73,7 @@ export const getMedication = async(req: Request , res: Response , next: NextFunc
 
         res
         .status(200)
-        .json({data: fetchMedication})
+        .json(fetchMedication)
 
     } catch (error) {
         next(error)

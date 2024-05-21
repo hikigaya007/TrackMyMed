@@ -41,7 +41,7 @@ export const getAdministrationsForResident = async(req: Request , res: Response 
 
         res
         .status(200)
-        .json({data: fetchRecords})
+        .json(fetchRecords)
 
     } catch (error) {
         next(error)
@@ -61,7 +61,7 @@ export const getAdministrationsForMedication = async(req: Request , res: Respons
 
         res
         .status(200)
-        .json({data: fetchRecords})
+        .json(fetchRecords)
 
     } catch (error) {
         next(error)
