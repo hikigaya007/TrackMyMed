@@ -6,6 +6,13 @@ import Tables from '../components/Tables'
 import { useNavigate } from 'react-router-dom'
 
 function AdministrationForMedication() {
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+}, [])
 
     const [medication , setMedication] = useState([])
 

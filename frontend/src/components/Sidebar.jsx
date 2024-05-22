@@ -30,9 +30,9 @@ function Sidebar() {
     ];
 
     return (
-        <div className="flex h-full">
+        <div className="flex min-h-screen bg-green-500">
             <div className="flex flex-col h-full min-h-screen w-[200px] border-e border-e-black bg-green-500">
-                <ul className="flex-grow">
+                <ul className="flex flex-col  bg-green-500  ">
                     {sidebardata.map((item, index) => (
                         <li key={index} className="w-full h-[70px] p-1 pt-5">
                             <NavLink 

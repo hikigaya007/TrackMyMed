@@ -10,11 +10,13 @@ function AddForm({ formType  , url}) {
     admin: { residentId: '', medicationId: '', date: '', administeredBy: '' }
   };
 
+  const [loading , setLoading] = useState(false)
+
   const [residentList , setResidentList] = useState([])
   const [medicationList , setMedicationList] = useState([])
 
   const fetchResident = async() => {
-
+    
     await axios.get('http://localhost:4000/resident/get-resident')
     .then((res) => {
       setResidentList(res.data)

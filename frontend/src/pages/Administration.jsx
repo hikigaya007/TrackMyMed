@@ -5,6 +5,14 @@ import AddForm from '../components/AddForm';
 import { useNavigate } from 'react-router-dom';
 
 function Administration() {
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+    }, [])
+
     const navigate = useNavigate()
 
     const [showAdd , setShowAdd] = useState(false)

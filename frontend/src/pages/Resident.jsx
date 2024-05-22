@@ -34,11 +34,18 @@ function Resident() {
     fetchData();
 
   } , [])
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+}, [])
 
   return (
     <>
         <Navbar/>
-        <div className='flex'>
+        <div className='flex '>
           <Sidebar/>
           <div className='flex flex-col p-7 w-full gap-6'>
             <div className='w-full flex justify-between items-center'>
