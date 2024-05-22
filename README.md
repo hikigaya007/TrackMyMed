@@ -66,9 +66,9 @@ An authenticated user can add administration records, list all administration re
 
     ```ini
     PORT=4000 // Your desired port where server should listen
-    MONGOURI="mongodb://localhost:27017/TrackMyMed" // either use the local MongoDB instance or use from atlas
+    DB_URI="mongodb://localhost:27017/TrackMyMed" // either use the local MongoDB instance or use from atlas
 
-    JWT_SECRET="YOURSECRET" // Your JWT Secret
+    JWT_KEY="YOURSECRET" // Your JWT Secret
     ```
 
 5. After configuring environment variables, simply run the server by typing ```npm run dev```,
