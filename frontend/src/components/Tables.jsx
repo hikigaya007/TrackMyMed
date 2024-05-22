@@ -34,7 +34,7 @@ function Tables({id , data , tableHeading}) {
                 <td className='border border-gray-400 text-center'>{item._id}</td>
                 <td className='border border-gray-400 text-center'>{ item.residentId}</td>
                 <td className='border border-gray-400 text-center'>{item.medicationId}</td>
-                <td className='border border-gray-400 text-center'>{item.date}</td>
+                <td className='border border-gray-400 text-center'>{formatDate(item.date)}</td>
                 <td className='border border-gray-400 text-center'>{item.administeredBy}</td>
               </tr>
             )

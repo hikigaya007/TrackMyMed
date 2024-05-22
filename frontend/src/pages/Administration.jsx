@@ -1,35 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
-import Tables from '../components/Tables';
-import axios from 'axios'
 import AddForm from '../components/AddForm';
+import { useNavigate } from 'react-router-dom';
 
 function Administration() {
-    const tableHeading = ['Id','Name','Dosage'];
+    const navigate = useNavigate()
 
     const [showAdd , setShowAdd] = useState(false)
-  
-    const [tableData , setTableData] = useState([])
-  
-    useEffect(()=> {
-  
-      const fetchData = async() => {
-  
-        await axios.get(`http://localhost:4000/medication/get-medication`)
-        .then((res) => {
-          console.log(res)
-          setTableData(res.data)
-        })
-        .catch((err) => {
-          console.log(err)
-        })
-  
-      }
-  
-      fetchData();
-  
-    } , [])
   
     return (
       <>
@@ -42,16 +20,21 @@ function Administration() {
                 <div className='flex gap-4'>
                   <button 
                   onClick={() => {setShowAdd(!showAdd)}}
-                  className='p-2 bg-green-400 rounded-lg'>Add Medication</button>
+                  className='p-2 bg-green-400 text-lg rounded-lg font-semibold'>Add Record</button>
                 </div>
               </div>
-              <div className=''>
-                <Tables id = 'medication' data = {tableData} tableHeading = {tableHeading}  />
+              <div className='flex flex-col gap-5 w-full h-full items-center justify-center'>
+                <button 
+                onClick={() => navigate('/administration/resident')}
+                className='bg-green-500 p-2 text-white rounded-lg text-2xl font-semibold'>Administration Record For Resident</button>
+                <button 
+                onClick={() => navigate('/administration/medication')}
+                className='bg-green-500 p-2 text-white rounded-lg text-2xl font-semibold'>Administration Record For Medication</button>
               </div>
             </div>
           </div>
-         {showAdd &&  <div className='absolute top-[40%] left-[40%] right-auto bottom-auto bg-green-400 shadow-lg p-5 border border-gray-300'>
-              <AddForm formType={'admin'} url={`http://localhost:4000/medication/add-medication`}/>
+         {showAdd &&  <div className='absolute top-[30%] left-[36%] right-auto bottom-auto bg-green-400 shadow-lg p-5 border border-gray-300'>
+              <AddForm formType={'admin'} url={`http://localhost:4000/administration//add-administration-record`}/>
               <button 
               onClick={() =>setShowAdd(!showAdd)}
               className='bg-red-500 p-2 uppercase font-bold ms-4'> Cancel</button>

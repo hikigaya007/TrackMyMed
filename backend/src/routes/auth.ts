@@ -10,7 +10,7 @@ handling route along with a middleware to validate the data before sending it to
 */
 router.post('/sign-up' , [
     check('username' , 'username is required ').isString().notEmpty(),
-    check('password' , 'password is required').isString().notEmpty(),
+    check('password' , 'password is required and must be min length of 6 Character').isString().notEmpty().isLength({min : 6}),
     check('confirmPassword' , 'confirmPassword is required').isString().notEmpty(),
 
     ] ,

@@ -46,10 +46,10 @@ function Medication() {
               <div className='flex gap-4'>
                 <button 
                 onClick={() => {setShowAdd(!showAdd)}}
-                className='p-2 bg-green-400 rounded-lg'>Add Medication</button>
+                className='p-2 bg-green-400 rounded-lg font-semibold text-lg'>Add Medication</button>
                 <button 
                 onClick={() => {setShowUpdate(!showUpdate)}}
-                className='p-2 bg-green-400 rounded-lg'>Update Medication</button>
+                className='p-2 bg-green-400 rounded-lg font-semibold text-lg'>Update Medication</button>
               </div>
             </div>
             <div className=''>

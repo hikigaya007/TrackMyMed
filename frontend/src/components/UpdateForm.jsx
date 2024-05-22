@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 function UpdateForm({ formType, url, data }) {
   const initialFormData = {
@@ -53,6 +54,11 @@ function UpdateForm({ formType, url, data }) {
   })
       .then((res) => {
         console.log(res);
+        Swal.fire({
+          title: "Updated Successfully !!!",
+          text: `Record has been updated`,
+          icon: "success"
+        });
       })
       .catch((err) => {
         console.log(err.response.data.message);

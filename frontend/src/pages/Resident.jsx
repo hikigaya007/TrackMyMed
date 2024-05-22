@@ -46,10 +46,10 @@ function Resident() {
               <div className='flex gap-4'>
                 <button 
                 onClick={() => {setShowAdd(!showAdd)}}
-                className='p-2 bg-green-400 rounded-lg'>Add Resident</button>
+                className='p-2 bg-green-400 rounded-lg font-semibold text-lg'>Add Resident</button>
                 <button 
                 onClick={() => {setShowUpdate(!showUpdate)}}
-                className='p-2 bg-green-400 rounded-lg'>Update Resident</button>
+                className='p-2 bg-green-400 rounded-lg font-semibold text-lg'>Update Resident</button>
               </div>
             </div>
             <div className=''>
