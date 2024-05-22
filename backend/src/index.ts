@@ -5,6 +5,8 @@ import cors from "./utils/cors";
 import residentRouter from './routes/resident'
 import medicationRouter from './routes/medication'
 import administrationRouter from "./routes/administration";
+import authRouter from "./routes/auth";
+import cookieParser from 'cookie-parser';
 
 dotenv.config()
 const app = express();
@@ -13,6 +15,7 @@ const app = express();
 // Configuration for backend
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
+app.use(cookieParser());
 app.use(cors)
 
 /*
@@ -45,6 +48,7 @@ const startServer = async () => {
 app.use('/resident' , residentRouter);
 app.use('/medication' , medicationRouter);
 app.use('/administration' , administrationRouter);
+app.use('/auth' , authRouter);
 
 
 

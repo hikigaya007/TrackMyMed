@@ -45,7 +45,12 @@ function UpdateForm({ formType, url, data }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
-    await axios.put(`${url}/${updateId}`, formData)
+    await axios.put(`${url}/${updateId}`, formData , {
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      withCredentials: true
+  })
       .then((res) => {
         console.log(res);
       })

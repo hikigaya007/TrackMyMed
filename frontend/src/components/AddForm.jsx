@@ -24,7 +24,12 @@ function AddForm({ formType  , url}) {
   const handleSubmit = async(e) => {
     e.preventDefault();
     setError("")
-    await axios.post(url , formData)
+    await axios.post(url , formData , {
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      withCredentials: true
+  })
     .then((res) => {
         console.log(res)
     })
