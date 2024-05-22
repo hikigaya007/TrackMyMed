@@ -57,6 +57,7 @@ function AddForm({ formType  , url}) {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
+    setLoading(true)
     setError("")
     await axios.post(url , formData , {
       headers: {
@@ -66,14 +67,17 @@ function AddForm({ formType  , url}) {
   })
     .then((res) => {
         console.log(res)
+        setLoading(false)
         Swal.fire({
           title: "Added SuccessFully!",
           text: `Record Has been added`,
           icon: "success"
         });
+
     })
     .catch((err) => {
         console.log(err.response.data.message)
+        setLoading(false)
         setError(err.response.data.message)
     })
   };
@@ -176,9 +180,10 @@ function AddForm({ formType  , url}) {
   return (
     <form onSubmit={handleSubmit} className='flex flex-col gap-4 p-5'>
       {renderFields()}
-      <button 
+      <button
+      disabled = {loading} 
       className='bg-black text-white font-semibold text-lg p-2 rounded-lg'
-      type="submit">Submit</button>
+      type="submit">{loading ? "Please wait...": "Submit"}</button>
       {error && <span className='font-semibold'>{error}</span>}
     </form>
   );

@@ -9,6 +9,8 @@ function UpdateForm({ formType, url, data }) {
     admin: { residentId: '', medicationId: '', date: '', administeredBy: '' }
   };
 
+  const [loading , setLoading] = useState(false)
+
   const [updateId, setUpdateId] = useState("");
   const [error, setError] = useState("");
   const [formData, setFormData] = useState(initialFormData[formType]);
@@ -45,6 +47,7 @@ function UpdateForm({ formType, url, data }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true)
     setError("");
     await axios.put(`${url}/${updateId}`, formData , {
       headers: {
@@ -54,6 +57,7 @@ function UpdateForm({ formType, url, data }) {
   })
       .then((res) => {
         console.log(res);
+        setLoading(false)
         Swal.fire({
           title: "Updated Successfully !!!",
           text: `Record has been updated`,
@@ -62,6 +66,7 @@ function UpdateForm({ formType, url, data }) {
       })
       .catch((err) => {
         console.log(err.response.data.message);
+        setLoading(false)
         setError(err.response.data.message);
       });
   };
