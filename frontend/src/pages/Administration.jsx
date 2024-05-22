@@ -38,7 +38,7 @@ function Administration() {
             <Sidebar/>
             <div className='flex flex-col p-7 w-full gap-6'>
               <div className='w-full flex justify-between items-center'>
-                <div className='uppercase font-bold text-3xl'>Manage Medication</div>
+                <div className='uppercase font-bold text-3xl'>Manage Administration record</div>
                 <div className='flex gap-4'>
                   <button 
                   onClick={() => {setShowAdd(!showAdd)}}
@@ -51,7 +51,7 @@ function Administration() {
             </div>
           </div>
          {showAdd &&  <div className='absolute top-[40%] left-[40%] right-auto bottom-auto bg-green-400 shadow-lg p-5 border border-gray-300'>
-              <AddForm formType={'medication'} url={`http://localhost:4000/medication/add-medication`}/>
+              <AddForm formType={'admin'} url={`http://localhost:4000/medication/add-medication`}/>
               <button 
               onClick={() =>setShowAdd(!showAdd)}
               className='bg-red-500 p-2 uppercase font-bold ms-4'> Cancel</button>
